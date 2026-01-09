@@ -163,7 +163,10 @@ void KillBullet(int index) {
 int PrintBullet() {
 	int i;
 	for (i = 0; i < bulletNum; i++) {
-		
+
+		bulletInfo[i].prevX = bulletInfo[i].x;
+		bulletInfo[i].prevY = bulletInfo[i].y;
+
 		CharacterPos(bulletInfo[i].prevX, bulletInfo[i].prevY);
 		printf(" "); // 이전 위치 지우기
 
@@ -185,9 +188,6 @@ int PrintBullet() {
 			return 1;
 		}
 		
-		bulletInfo[i].prevX = bulletInfo[i].x;
-		bulletInfo[i].prevY = bulletInfo[i].y;
-
 		CharacterPos(bulletInfo[i].x, bulletInfo[i].y);
 		printf("o");
 
@@ -253,7 +253,7 @@ int main() {
 			system("pause");
 			break;
 		}
-		Sleep(70);
+		Sleep(50);
 	}
 
 	return 0;
